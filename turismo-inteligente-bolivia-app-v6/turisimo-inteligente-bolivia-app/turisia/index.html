@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Turismo Inteligente Bolivia · Explora las maravillas de Bolivia</title>
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+</head><body data-tab="explorar">
+<div id="login">
+  <svg id="lPaisaje" class="paisaje" viewBox="0 0 1200 380" preserveAspectRatio="xMidYMax slice" aria-hidden="true"></svg>
+  <div class="lcard">
+    <div class="wm lw"><b>Turismo <i>Inteligente</i></b><small>Bolivia</small></div>
+    <p class="lema">Explora las maravillas de Bolivia</p>
+    <div class="ltabs"><button id="lTabIn" class="on">Ingresar</button><button id="lTabReg">Crear cuenta</button></div>
+    <label id="lNombreW" hidden>Nombre<input id="lNombre" autocomplete="name"></label>
+    <label>Correo<input id="lMail" type="email" autocomplete="email"></label>
+    <label>Contraseña<input id="lPass" type="password" autocomplete="current-password"></label>
+    <p id="lMsg" class="nota" role="alert"></p>
+    <button id="lEnviar" class="cta">Ingresar</button>
+    <p class="nota">Para usar Turismo Inteligente inicia sesión. Usuarios y administradores entran por aquí.</p>
+  </div>
+</div>
+<div id="app" hidden>
+<header class="top">
+  <a class="brand" href="#" aria-label="Turismo Inteligente Bolivia">
+    <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#0f2a5c"/><path d="M5 36 18 17l6 8 7-14 12 25z" fill="#fff"/><path d="M5 36 18 17l6 8 7-14 12 25z" fill="none"/><circle cx="37" cy="10" r="4" fill="#f2b705"/><path d="M5 40q19-6 38 0v8H5z" fill="#1498a6"/></svg>
+    <span class="wm"><b>Turismo <i>Inteligente</i></b><small>Bolivia</small></span>
+  </a>
+  <nav id="tabs" aria-label="Secciones">
+    <button data-t="explorar" class="on">Explorar</button>
+    <button data-t="planificar">Planificar</button>
+    <button data-t="asistente">Asistente</button>
+    <button data-t="aliados">Prestadores</button>
+    <button data-t="mis" hidden>Mi panel</button>
+    <button data-t="admin" hidden>Administración</button>
+  </nav>
+  <span id="rolTag" class="rolTag" hidden>Administrador</span>
+  <button id="btnCuenta" class="cuenta">Salir</button>
+</header>
+
+<section class="hero">
+  <div class="hero-txt">
+    <h1>Explora las maravillas de Bolivia</h1>
+    <p>Itinerarios para La Paz y alrededores, armados con fichas que muestran su fuente y la fecha en que se verificaron.</p>
+    <p id="stats" class="stats"></p>
+    <button class="cta" data-go="planificar">Planificar mi viaje</button>
+  </div>
+  <svg class="paisaje" viewBox="0 0 1200 380" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs><linearGradient id="lago" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1498a6"/><stop offset="1" stop-color="#0c6f7c"/></linearGradient></defs>
+    <circle cx="990" cy="86" r="62" fill="#f2b705" opacity=".16"/><circle cx="990" cy="86" r="32" fill="#f2b705"/>
+    <path d="M0 312 150 186l80 54 100-96 190 168z" fill="#1d4486"/>
+    <path d="M820 312 960 196l72 54 96-70 72 66v66z" fill="#1d4486"/>
+    <path d="M330 312 540 120l56 40 84-100 84 92 40-28 170 188z" fill="#2c61b0"/>
+    <path d="M680 60 641 114l26-8 13 16 22-16 24 10z" fill="#fff"/>
+    <path d="M540 120 512 152l20-6 14 12 18-14z" fill="#fff" opacity=".92"/>
+    <path d="M848 126 824 158l16-5 11 10 14-9z" fill="#fff" opacity=".85"/>
+    <rect y="306" width="1200" height="68" fill="url(#lago)"/>
+    <path d="M330 312 540 120l56 40 84-100 84 92 40-28 170 188z" transform="matrix(1 0 0 -.18 0 363)" fill="#fff" opacity=".12"/>
+    <path class="ruta" d="M112 342C290 312 430 352 610 326S900 346 1088 320" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="9 11" stroke-linecap="round"/>
+    <g fill="#fff" stroke="#f26b1d" stroke-width="3"><circle cx="330" cy="333" r="6"/><circle cx="610" cy="326" r="6"/><circle cx="880" cy="337" r="6"/><circle cx="1088" cy="320" r="6"/></g>
+    <path d="M112 330C100 312 96 306 96 298a16 16 0 0 1 32 0c0 8-4 14-16 32z" fill="#f26b1d"/><circle cx="112" cy="298" r="6" fill="#fff"/>
+    <rect y="366" width="1200" height="5" fill="#d52b1e"/><rect y="371" width="1200" height="5" fill="#f9e300"/><rect y="376" width="1200" height="4" fill="#007934"/>
+  </svg>
+</section>
+
+<main>
+  <div id="aviso" class="aviso" hidden></div>
+
+  <section id="explorar" class="panel">
+    <div class="filtros">
+      <label>Destino <select id="fDestino"><option value="">Todos los destinos</option></select></label>
+      <label>Tipo <select id="fTipo"><option value="">Todos los tipos</option><option>atractivo</option><option>actividad</option><option>alojamiento</option><option>gastronomia</option><option>transporte</option><option>guia</option></select></label>
+    </div>
+    <h2 id="promoT" hidden>Promocionado <small>Publicidad de terceros, separada de las recomendaciones</small></h2><div id="promo" class="grid"></div>
+    <h2>Fichas verificadas</h2><div id="fichas" class="grid"></div>
+  </section>
+
+  <section id="planificar" class="panel" hidden>
+    <h2 data-sub="Elige destino, días, presupuesto en Bs e intereses">Arma tu itinerario</h2>
+    <div class="plan">
+      <div class="form">
+        <label>Destino <select id="pDestino"><option value="">La Paz y alrededores</option></select></label>
+        <label>Días <select id="pDias"><option>1</option><option>2</option><option selected>3</option><option>5</option><option>7</option></select></label>
+        <label>Presupuesto total
+          <span class="bs-in"><i>Bs</i><input id="pPres" type="number" min="1" step="10" value="600" inputmode="numeric"></span>
+          <span id="pHint" class="hint"></span>
+        </label>
+        <fieldset><legend>Intereses</legend>
+          <label class="pill"><input type="checkbox" value="cultura" checked><span>Cultura</span></label>
+          <label class="pill"><input type="checkbox" value="aventura"><span>Aventura</span></label>
+          <label class="pill"><input type="checkbox" value="comida" checked><span>Comida</span></label>
+          <label class="pill"><input type="checkbox" value="naturaleza"><span>Naturaleza</span></label>
+        </fieldset>
+        <button id="gen" class="cta">Generar itinerario</button>
+      </div>
+      <div id="itin" class="itin"><p class="vacio">Tu itinerario aparecerá aquí. Cada actividad indica su fuente y deja el costo por confirmar con el prestador.</p></div>
+    </div>
+  </section>
+
+  <section id="asistente" class="panel" hidden>
+    <h2 data-sub="Pregúntale por destinos, comidas o por tu propio itinerario">Asistente inteligente</h2>
+    <div id="chat" class="chat"></div>
+    <div class="sugs">
+      <button class="sug" data-q="¿Qué puedo comer en mi segundo día?">¿Qué puedo comer en mi segundo día?</button>
+      <button class="sug" data-q="¿Qué puedo hacer en Tiwanaku?">¿Qué puedo hacer en Tiwanaku?</button>
+      <button class="sug" data-q="¿Qué opciones económicas hay?">¿Qué opciones económicas hay?</button>
+    </div>
+    <div class="row"><input id="q" placeholder="Escribe tu pregunta…"><button id="send" class="cta">Preguntar</button></div>
+    <p class="nota">Responde con las fichas de la base. Si inicias sesión, también conoce tus itinerarios guardados. Verifica horarios y precios con el prestador.</p>
+  </section>
+
+  <section id="mis" class="panel" hidden>
+    <h2 data-sub="Tus itinerarios guardados y tu perfil">Mi panel</h2>
+    <div id="userNav" class="subnav"><button data-u="itin" class="on">Mis itinerarios</button><button data-u="perfil">Mi perfil</button></div>
+    <div id="uItin"><div id="misLista" class="grid"></div></div>
+    <div id="uPerfil" class="caja form2" hidden>
+      <label>Correo<input id="uMail" disabled></label>
+      <label>Nombre<input id="uNombre"></label>
+      <p class="ancho">Tipo de cuenta: <span id="uRol" class="tag"></span> <span id="uCuenta" class="meta"></span></p>
+      <div class="row ancho"><button id="uGuardar" class="cta">Guardar nombre</button><button id="uSalir" class="cta ghost">Cerrar sesión</button><span id="uMsg" class="nota"></span></div>
+    </div>
+  </section>
+
+  <section id="admin" class="panel" hidden>
+    <h2 data-sub="Contenido, anuncios y métricas del piloto">Panel de administración</h2>
+    <div class="admin-layout"><div id="adminNav" class="subnav"><button data-a="resumen" class="on">Resumen del piloto</button><button data-a="fichas">Fichas</button><button data-a="aliados">Prestadores y anuncios</button><button data-a="mensajes">Interesados y opiniones</button></div>
+    <div id="adminBody"></div></div>
+  </section>
+
+  <section id="aliados" class="panel" hidden>
+    <h2 data-sub="Hoteles, guías, agencias y restaurantes">¿Ofreces servicios turísticos?</h2>
+    <p>Hoteles, guías, agencias y restaurantes pueden aparecer en Turismo Inteligente. Los anuncios siempre se muestran como «Promocionado», separados de las recomendaciones. El plan publicitario de trabajo es de Bs 150 al mes y todavía no es una tarifa aprobada.</p>
+    <div class="row"><input id="mail" type="email" placeholder="correo@ejemplo.com"><button id="reg" class="cta">Quiero información</button></div>
+    <p id="regMsg" class="nota"></p>
+    <h2>Después del viaje: califica Turismo Inteligente</h2>
+    <div class="row"><select id="cal"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select>
+    <input id="com" placeholder="Comentario (opcional)"><button id="rate" class="cta">Enviar</button></div>
+    <p id="rateMsg" class="nota"></p>
+  </section>
+</main>
+
+<footer>
+  <p><b>Misión.</b> Proveer una plataforma inteligente de servicios turísticos integrales, accesibles y personalizados.</p>
+  <p class="vals"><span>Calidad y confianza</span><span>Innovación</span><span>Identidad cultural</span><span>Accesibilidad</span><span>Responsabilidad</span><span>Transparencia</span></p>
+  <small>UMSA · Informática · INF-264 · Huanca, Illanes, Suxo</small>
+</footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="config.js"></script><script src="app.js"></script><script src="cuenta.js"></script><script src="admin.js"></script>
+</body></html>
